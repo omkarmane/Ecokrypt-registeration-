@@ -1,0 +1,51 @@
+<h2 class="text-center">Welcome to Ecocrypt</h2>
+<hr>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <h3>Ecocrypt Registeration</h3>
+          <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" 
+                placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && formData.firstName.errors }" />
+                <div *ngIf="submitted && formData.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="formData.firstName.errors.required">First Name is required</div>
+            </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" formControlName="lastName" class="form-control"  placeholder="Last Name" [ngClass]="{ 'is-invalid': submitted && formData.lastName.errors }" />
+              <div *ngIf="submitted && formData.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="formData.lastName.errors.required">Last Name is required</div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control"  placeholder="ecocrypt@gmail.com" [ngClass]="{ 'is-invalid': submitted && formData.email.errors }" />
+            <div *ngIf="submitted && formData.email.errors" class="invalid-feedback">
+                <div *ngIf="formData.email.errors.required">Email is required</div>
+                <div *ngIf="formData.email.errors.email">Email must be a valid email address</div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" formControlName="password" class="form-control"  placeholder="***********" [ngClass]="{ 'is-invalid': submitted && formData.password.errors }" />
+          <div *ngIf="submitted && formData.password.errors" class="invalid-feedback">
+              <div *ngIf="formData.password.errors.required">Password is required</div>
+              <div *ngIf="formData.password.errors.minlength">Password must be at least 8 characters</div>
+      </div>
+      </div>
+
+      <div class="form-group">
+       <button class="btn btn-primary">Register</button> &nbsp;
+       <button class="btn btn-danger">Cancel</button>
+    </div>
+          </form>
+        </div>
+    </div>
+  </div>
+  <!-- <p>{{newData.value}}</p> -->
+</div>
